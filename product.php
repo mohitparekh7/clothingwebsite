@@ -1,6 +1,7 @@
 <?php
-session_start();
-$id = $_SESSION['id'];
+// session_start();
+// $id = $_SESSION['id'];
+include('connection.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -191,55 +192,57 @@ $id = $_SESSION['id'];
                     ?>
                 </form>
             </div>
-
             <?php
+      
+      if(isset($_POST['add'])) 
+      {
+       
+        $pid = $_POST["add"];
+        $res = mysqli_query($con, "SELECT * FROM product WHERE p_id='$pid'");
+        $row = mysqli_fetch_array($res);
+        $price = $row[7]; //price
+        $pname = $row[3]; //pname
+        $img = $row[8];
+        $vendor=$row[2]; //vendor name
+        $pdesc=$row[6];
+      
+        $create = "CREATE TABLE IF NOT EXISTS cart (pid INT PRIMARY KEY, pname VARCHAR(255) NOT NULL, price INT NOT NULL,qty INT, pdesc VARCHAR(255),vendor VARCHAR(255))";
+        if (mysqli_query($con, $create)) 
+        {
 
-            if (isset($_POST['add'])) {
-                include('connect.php');
-                $pid = $_POST["add"];
-                $res = mysqli_query($con, "SELECT * FROM product WHERE p_id='$pid'");
-                $row = mysqli_fetch_array($res);
+            global $con;
+            $result = mysqli_query($con,"SELECT * FROM cart WHERE pid = '$pid' ");
+            $res1=mysqli_fetch_row($result);
+            if($res1) 
+            {
+              
+              $q=$res1[3];
+              $q = $q + 1;
+              $query = " UPDATE cart SET qty= '$q' WHERE pid='$pid' ";
+              if(mysqli_query($con, $query)==FALSE)  
+                  {  
+                  echo '<script>alert("Failed to add item to cart. Try again.")</script>';  
+                  } 
 
-                $price = $row[2]; //price
-                $pname = $row[1]; //pname
-                $img = $row[4];
+            } 
+            else {
 
-                // $create = "CREATE TABLE IF NOT EXISTS cart (c_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,u_id INT, pid INT, pname VARCHAR(255) NOT NULL, price VARCHAR(255) NOT NULL, qty INT, p_path VARCHAR(255) NOT NULL)";
-                // if (mysqli_query($con, $create)) {
+                  //Implies adding first time to cart
+            $query = "INSERT INTO cart (pid,pname,price,qty,pdesc,vendor) VALUES('$pid','$pname','$price','1','$pdesc','$vendor')"; 
+            if(mysqli_query($con, $query)==FALSE)  
+                  {
+                  echo '<script>alert("Failed to add item to cart. Try again.")</script>'.mysqli_error($con);  
+                  }
+              }
+        } 
+        else 
+        {
+              echo "Sorry, couldn't connect to the database: " . mysqli_error($con);
+        }
+      }   
 
-                //     $result = mysqli_query($con, "SELECT * FROM cart WHERE pid = '$pid' ");
-                //     if (!$result) {
-                //         printf("Error: %s\n", mysqli_error($con));
-                //         exit();
-                //     }
-                //     $res1 = mysqli_fetch_array($result);
-                //     $num_rows = mysqli_num_rows($result);
+    ?>
 
-                //     if ($num_rows == 0) {
-                //         $query = "INSERT INTO cart (u_id,pid,pname,price,qty,p_path) VALUES('$id','$pid','$pname','$price','1','$img')";
-                //         if (mysqli_query($con, $query)) {
-                //             echo '<script>alert("Item added to cart successfully!")</script>';
-                //         } else {
-                //             echo '<script>alert("Failed to add item to cart. Try again.")</script>';
-                //             echo "Error: <br>" . mysqli_error($con);
-                //         }
-                //     } else {
-                //         $q = $res1[5];
-                //         $q = $q + 1;
-                //         $query = "UPDATE cart SET qty= '$q' WHERE pid='$pid' ";
-
-                //         if (mysqli_query($con, $query)) {
-                //             echo '<script>alert("Item added to cart successfully!")</script>';
-                //         } else {
-                //             echo '<script>alert("Failed to add item to cart. Try again.")</script>';
-                //             // echo "Error: <br>" . mysqli_error($con);
-                //         }
-                //     }
-                // } else {
-                //     echo "Error creating table: " . mysqli_error($con);
-                // }
-            }
-            ?>
 
         </div>
     </div>

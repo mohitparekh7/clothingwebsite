@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -41,6 +41,10 @@
 
 		.dropdown-menu{
 			background-color: black;
+		}
+
+		.dropdown .fa{
+			font-size: 24px;
 		}
 
 		footer .fa{
@@ -109,7 +113,7 @@
 						<a class="nav-link active-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item px-2">
-						<a class="nav-link" href="product.php">Our Products</a>
+						<a class="nav-link" href="product.php">Products</a>
 					</li>
 					<li class="nav-item px-2">
 						<a class="nav-link" href="about_us.php">About</a>
@@ -117,34 +121,34 @@
 					<li class="nav-item px-2">
 						<a class="nav-link" href="contact_us.php">Contact Us</a>
 					</li>
+
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							My Account
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i>
 						</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" href="login.php">Login / Signup</a>
+							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#">Profile</a>
-							<a class="dropdown-item" href="#">My Orders</a>
-							<a class="dropdown-item" href="#">Logout</a>
+							<a class="dropdown-item" href="orders.php">My Orders</a>
+							<a class="dropdown-item" href="logout.php">Logout</a>
 						</div>
 
 					</li>
-					<li>
+
+
+					<li class="nav-item px-2">
 						<form method="post">
 							<?php
 							if (empty($cust_id)) {
 							?>
-								<a href="form/index.php?msg=you must be login first"><span style=" color:#edc4d9; font-size:30px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+								<a href="cart-new.php?msg=you must be login first"><span style=" color:#edc4d9; font-size:30px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
 
-								&nbsp;&nbsp;&nbsp;
-								<button class="btn btn-outline-danger my-2 my-sm-0" name="login" type="submit">Log In</button>&nbsp;&nbsp;&nbsp;
 							<?php
 							} else {
 							?>
-								<a href="cart.php"><span style=" color:green; font-size:30px;"><i class="fa fa-shopping-cart" aria-hidden="true"><span style="color:green;" id="cart" class="badge badge-light"><?php if (isset($re)) {
-																																																							echo $re;
-																																																						} ?></span></i></span></a>
-								<button class="btn btn-outline-success my-2 my-sm-0" name="logout" type="submit">Log Out</button>&nbsp;&nbsp;&nbsp;
-							<?php
+								<a href="cart-new.php"><span style=" color:green; font-size:30px;"><i class="fa fa-shopping-cart" aria-hidden="true"><span style="color:green;" id="cart" class="badge badge-light"><?php if (isset($re)) {														echo $re;
+								}?></span></i></span></a>
+								<?php
 							}
 							?>
 						</form>
@@ -156,9 +160,9 @@
 
 
 </body>
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 </html>

@@ -26,11 +26,15 @@ if (isset($_POST['submit_login'])) {
 	}
 }
 ?>
+
+<?php 
+include("header.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Clothing website</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -45,20 +49,6 @@ if (isset($_POST['submit_login'])) {
 		body{
 			background-image: url('images/bg11.jpg');
 			background-position: right;
-		}
-		.navbar{
-			background-color: black;
-			margin-bottom: 20px;
-			padding: 10px;
-		}
-
-		.navbar img{
-	      width: 20%;
-	    }
-
-		.nav-item{
-			padding-left: 10px;
-			padding-right: 10px;
 		}
 
 		a:link , a:visited{
@@ -186,22 +176,17 @@ if (isset($_POST['submit_login'])) {
 				alert("Password can't be blank");
 				return false;
 			}
-
-
+			
 		}
 
 	</script>
 
 	
 <body>
-	<?php
-	include("header.php");
-	?>
-
 	<div class="form1">
-	<table>
 		<h3>Login</h3>
 		<form method="post" name='form' onsubmit="return valform()">
+		<table>
 			<tr>
 				<td><label>Email Id</label></td>
 				<td><input type="email" required name="login_email"></td>
@@ -211,12 +196,11 @@ if (isset($_POST['submit_login'])) {
 				<td><label>Password</label></td>
 				<td><input type="password" required name="login_password"></td>
 			</tr>
-			</table>
+	</table>
 			<div><button type="submit" class="btn btn1" name="submit_login">Login</button></div>
 			<a href="registration.php">Not a member? Sign Up</a>
 			
-		</form>		
-	</table>
+	</form>	
 	</div>
 
 

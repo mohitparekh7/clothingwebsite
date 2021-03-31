@@ -27,6 +27,10 @@ if(isset($logout)){
 ?>
 
 <!DOCTYPE html>
+<?php 
+include("header.php");
+?>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -43,21 +47,6 @@ if(isset($logout)){
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <style type="text/css">
-	.navbar {
-		background-color: black;
-		margin-bottom: 20px;
-		padding: 10px;
-	}
-
-	.navbar img {
-		width: 20%;
-	}
-
-	.nav-item {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-
 	a:link,
 	a:visited {
 		color: #f3d8e6;
@@ -233,13 +222,7 @@ if(isset($logout)){
 </style>
 
 <body>
-	<?php 
-	include("header.php");
-	?>
-
-
-
-	<div class="container">
+<div class="container">
 		<div class="row sum">
 			<div class="col-lg-4 text-center">
 				<div class="valign">
@@ -265,7 +248,7 @@ if(isset($logout)){
 	<div class="container cat">
 		<div class="row">
 			<div class="col-lg-4 zoom">
-				<a href="#">
+				<a href="womens1.php">
 					<img src="images/cat121.jpg" class="col">
 				</a>
 				<div>Women</div>
@@ -277,7 +260,7 @@ if(isset($logout)){
 				<div>Kids</div>
 			</div>
 			<div class="col-lg-4 zoom">
-				<a href="#">
+				<a href="mens1.php">
 					<img src="images/cat212.jpg" class="col">
 				</a>
 				<div>Men</div>

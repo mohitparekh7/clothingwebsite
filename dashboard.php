@@ -139,10 +139,11 @@ if (isset($update)) {
                             <tr>
                                 <th scope="col">Vendor_Id</th>
                                 <th scope="col">Product View</th>
+                                <th scope="col">Product Name</th>
                                 <th scope="col">Product Categories</th>
                                 <th scope="col">Vendor Name</th>
                                 <th scope="col">Product Id</th>
-                                <th scope="col">Remove Vendor</th>
+                                <th scope="col">Remove Product</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -154,9 +155,8 @@ if (isset($update)) {
 
                                 <tr>
                                     <th scope="row"><?php echo $row['vendor_id']; ?></th>
-                                    <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row['p_img']).'" height="250px" width="150px" />' ?>
-                                        <br><?php echo $row['p_name']; ?>
-                                    </td>
+                                    <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row['p_img']).'" height="250px" width="150px" />' ?></td>
+                                    <td><?php echo $row['p_name']; ?></td>
                                     <td><?php echo $row['p_category']; ?></td>
                                     <td><?php echo $row['vendor_name']; ?></td>
                                     <td><?php echo $row['p_id']; ?></td>
@@ -224,6 +224,7 @@ if (isset($update)) {
                                 <th scope="col">Vendor Id</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Address</th>
+                                <th scope="col">Contact</th>
                                 <th scope="col">Remove Vendor</th>
                             </tr>
                         </thead>
@@ -237,6 +238,7 @@ if (isset($update)) {
                                     <th scope="row"><?php echo $row['vendor_id']; ?></th>
                                     <td><?php echo $row['vendor_name']; ?></td>
                                     <td><?php echo $row['vendor_address']; ?></td>
+                                    <td><b>Email: </b><?php echo $row['vendor_email']; ?><br><b>Phone: </b><?php echo $row['vendor_contact']; ?></td>
 
                                     <form method="post">
                                         <td><a href="#" style="text-decoration:none; color:white;" onclick="delRecord(<?php echo $row['vendor_id']; ?>)"><button type="button" class="btn btn-danger">Remove Vendor</a></a></td>

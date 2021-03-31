@@ -14,7 +14,7 @@ if (!isset($_SESSION['id'])) {
 } else {
     $query = mysqli_query($con, "select * from vendor   where vendor_email='$id'");
     if (mysqli_num_rows($query)) {
-        
+
         $row = mysqli_fetch_array($query);
         $v_id = $row['vendor_id'];
     } else {
@@ -108,7 +108,9 @@ if (isset($upd_logo)) {
 
 <body>
 
-    
+    <?php
+    include("header.php");
+    ?>
 
 
     <br><br>
@@ -124,10 +126,10 @@ if (isset($upd_logo)) {
             <li class="nav-item">
                 <a class="nav-link" id="accountsettings-tab" data-toggle="tab" href="#accountsettings" role="tab" aria-controls="accountsettings" aria-selected="false">Account Settings</a>
             </li>
-
+<!-- 
             <li class="nav-item">
                 <a class="nav-link" id="logo-tab" data-toggle="tab" href="#logo" role="tab" aria-controls="logo" aria-selected="false">Update Logo</a>
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link" id="status-tab" data-toggle="tab" href="#status" role="tab" aria-controls="status" aria-selected="false">Order Status</a>
             </li>
@@ -157,7 +159,7 @@ if (isset($upd_logo)) {
                         ?>
                                     <tr>
 
-                                        <td><?php echo '<img class="" src="data:image/jpeg;base64,'.base64_encode( $row['p_img']).'" height="250px" width="200px" />'; ?></td> 
+                                        <td><?php echo '<img class="" src="data:image/jpeg;base64,' . base64_encode($row['p_img']) . '" height="250px" width="200px" />'; ?></td>
                                         <td style="width:150px;"><?php echo $row['p_name'] . "<br>"; ?></td>
                                         <td align="center" style="width:150px;"><?php echo $row['p_price'] . "<br>"; ?></td>
                                         <td align="center" style="width:150px;"><?php echo $row['p_category'] . "<br>"; ?></td>
@@ -202,8 +204,8 @@ if (isset($upd_logo)) {
                         <!--product_name-->
                         <label for="product_name">Product Name:</label>
                         <input type="text" class="form-control" id="product_name" value="<?php if (isset($product_name)) {
-                                                                                            echo $product_name;
-                                                                                        } ?>" placeholder="Enter Product Name" name="product_name" required>
+                                                                                                echo $product_name;
+                                                                                            } ?>" placeholder="Enter Product Name" name="product_name" required>
                     </div>
 
 
@@ -235,7 +237,7 @@ if (isset($upd_logo)) {
                     </div>
 
                     <div class="form-group">
-                        <input type="file" accept="image/*" name="product_pic"  />Product Image
+                        <input type="file" accept="image/*" name="product_pic" />Product Image
                     </div>
 
                     <button type="submit" name="add" class="btn btn-primary">ADD Item</button>
@@ -285,8 +287,8 @@ if (isset($upd_logo)) {
                     <div class="form-group">
                         <label for="mobile">Contact</label>
                         <input type="text" id="mobile" pattern="" value="<?php if (isset($mb)) {
-                                                                                                echo $mb;
-                                                                                            } ?>" class="form-control" name="mob" required />
+                                                                                echo $mb;
+                                                                            } ?>" class="form-control" name="mob" required />
                     </div>
 
                     <div class="form-group">
@@ -302,14 +304,20 @@ if (isset($upd_logo)) {
 
                 </form>
             </div>
-            <div class="tab-pane fade" id="logo" role="tabpanel" aria-labelledby="logo-tab">
+
+            <!-- Tab 4 starts  -->
+
+            <!-- <div class="tab-pane fade" id="logo" role="tabpanel" aria-labelledby="logo-tab">
                 <div class="container">
                     <form class="form" method="post" enctype="multipart/form-data">
                         <input type="file" name="logo_pic" accept="image/*" required />
                         <button type="submit" name="upd_logo" class="btn btn-outline-primary">Update image</button>
                     </form>
                 </div>
-            </div>
+            </div> -->
+
+            <!-- Tab 4 ends  -->
+
             <div class="tab-pane fade " id="status" role="tabpanel" aria-labelledby="status-tab">
                 <table class="table">
                     <tbody>
@@ -318,16 +326,20 @@ if (isset($upd_logo)) {
                         <th>Product Id</th>
                         <th>Order Status</th>
                         <th>Update Status</th>
+
                         <?php
-                        $orderquery = mysqli_query($con, "select * from orders where vendor_id='$vrid'");
-                        if (mysqli_num_rows($orderquery)>0) {
+                        $orderquery = mysqli_query($con, "select * from orders  join product on orders.p_id=product.p_id where vendor_id='$vrid'");
+                        if (mysqli_num_rows($orderquery) > 0) {
                             while ($orderrow = mysqli_fetch_array($orderquery)) {
+                                $userid = $orderrow['u_id'];
+                                $userquery = mysqli_query($con,"SELECT * FROM user_details  WHERE  user_id ='$userid'");
+                                $userrow = mysqli_fetch_array($userquery);
                                 $stat = $orderrow['orderstatus'];
                         ?>
                                 <tr>
                                     <td><?php echo $orderrow['order_id']; ?></td>
-                                    <td><?php echo $orderrow['email_id']; ?></td>
-                                    <td><?php echo $orderrow['product_id']; ?></td>
+                                    <td><?php echo $userrow['user_emailid']; ?></td>
+                                    <td><?php echo $orderrow['p_id']; ?></td>
                                     <?php
                                     if ($stat == "cancelled" || $stat == "Out Of Stock") {
                                     ?>

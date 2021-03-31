@@ -1,4 +1,37 @@
 <?php
+session_start();
+include("connection.php");
+extract($_REQUEST);
+    if(isset($_SESSION['id']))
+{
+	header("location:myproducts.php");
+}
+
+	if(isset($register))
+     {
+	$sql=mysqli_query($con,"select * from vendor where vendor_email='$email'");
+    if(mysqli_num_rows($sql))
+	{
+	  $email_error="This Email Id is laready registered with us";
+	}
+	else
+	{
+	$logo=$_FILES['logo']['name'];
+	$sql=mysqli_query($con,"insert into vendor 
+	(fld_name	,fld_email,fld_password,fld_mob,fld_phone,fld_address,fld_logo)
+       	values('$r_name','$email','$pswd','$mob','$phone','$address','$logo')");
+	
+	$_SESSION['id']=$email;
+	
+	header("location:myproducts.php");
+	
+	}
+  }
+	
+	
+  
+?>
+<?php
 include("connection.php");
 include("header.php");
 ?>
@@ -186,13 +219,14 @@ include("header.php");
 		}
 	</script>
 <body>
+
 	<div class="forms">
-	<h3>Registration</h3>
+	<h3>Vendor Registration</h3>
 	<form method="post"  name="register">
 		<table>	
 			<tr>
 				<td>
-					<label>Full Name</label>
+					<label>Company Name</label>
 				</td>
 				<td>
 					<input type="text" name="user_name" required>

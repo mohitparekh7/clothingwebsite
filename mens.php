@@ -2,10 +2,9 @@
   include("connection.php");
 ?>
 
-
 <div id="special">
 <div style="text-align: center; margin-bottom: 20px; font-size: 25px;background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.20);">
-  <h3 style="color: #ff3030; padding: 10px; font-family: 'Merriweather', serif;">Men</h3>
+  <h3 style="color:#c33c82; padding: 10px; font-family: 'Merriweather', serif;">Men</h3>
 </div>
 <div class="container" style="width:95%; margin: auto;">
 <div class="row sp">
@@ -14,6 +13,7 @@
         if (!empty($product)) { 
         while ($row=mysqli_fetch_array($product)) {
         ?>
+        <div>
         <div class="col-lg-4">
         <div class="card" style="width: 18rem;">
         <?php 
@@ -27,6 +27,7 @@
           <p class="card-text"><?php echo $row['p_desc']; ?></p>
           <centre><button class="btn shop-item-button" type="submit" value="<?php echo $row["p_id"] ?>" name="add">Add to cart</button></centre>
         </div>
+      </div>
       </div>
       </div>
        <?php

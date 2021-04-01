@@ -26,6 +26,7 @@
           </div>
           <p class="card-text"><?php echo $row['p_desc']; ?></p>
           <centre><button class="btn shop-item-button" type="submit" value="<?php echo $row["p_id"] ?>" name="add">Add to cart</button></centre>
+          <centre><button class="btn shop-item-button" type="submit" value="<?php echo $row["p_id"] ?>"name="query" >Query?</button></centre>
         </div>
       </div>
       </div>

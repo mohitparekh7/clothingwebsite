@@ -171,6 +171,16 @@ include("header.php");
 		margin-top: 15px;
 	}
 
+	.ab{
+		margin-top: 30px;
+	}
+	.ab p{
+		margin-top: 20px;
+	}
+
+	.br{
+		margin-top: 50px;
+	}
 	footer .fa {
 		padding: 15px;
 		font-size: 20px;
@@ -228,7 +238,7 @@ include("header.php");
 				<div class="valign">
 					<p style="margin-bottom: 0px;">New Summer Collection</p>
 					<p style="font-size: 14px; margin-top: 0px;">30% on selected styles</p>
-					<a href="#">Buy Now</a>
+					<a href="product.php">Buy Now</a>
 				</div>
 			</div>
 			<div class="col-lg-8">
@@ -274,7 +284,7 @@ include("header.php");
 	<div class="t1">
 	</div>
 
-	<div class="ite">
+<!-- 	<div class="ite">
 		<h3>Featured Products</h3>
 	</div>
 
@@ -325,7 +335,47 @@ include("header.php");
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
+
+	<div class="container ab">
+  <h3>About Us</h3>
+
+   <p> Jade is a clothing e-commerce website that provides a very smooth hassle free 
+       shopping experience to the users across the country. 
+       We aim at providing latest trends to our customers.
+       All our products are fully authentic, we also provide various payment options such as cash 
+       on delivery, UPI payment and credit/debit card payment. We have a 30 day return policy and a
+       team available 24x7 to answer all customer queries. Our website understands customer needs and 
+       provides them with famous international brands such as Levis, Nike, Puma, etc all on one 
+       platform for comfortable shopping.
+   </p>
+</div>
+
+<div class="container br">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="thumbnail text-center">
+            <img src="./images/nike.jpg" style="width:60%">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail text-center">
+          <img src="./images/levis.jpg" style="width:60%"> 
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail text-center">
+          <img src="./images/puma.jpg" style="width:60%">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="thumbnail text-center">
+            <img src="./images/zara.jpg" style="width:60%">   
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 	<?php

@@ -57,17 +57,17 @@ include('connection.php');
         }
 
         .card {
-            height: 90%;
+            height: 95%;
             margin-bottom: 20px;
             text-align: center;
         }
 
 
-        .card img {
+        .card img{
             height: 58%;
         }
 
-        .card-title {
+        .card-title{
             font-size: 16px;
         }
 
@@ -188,6 +188,17 @@ include('connection.php');
                 } else {
                     echo "Sorry, couldn't connect to the database: " . mysqli_error($con);
                 }
+            }
+            if (isset($_POST['query'])) {
+                session_start();
+                $pid = $_POST["query"];
+                echo $pid;
+                $_SESSION['pid'] = $pid;
+                ?>
+                <script>
+                    document.location = 'query.php';
+                </script>
+                <?php
             }
 
             ?>

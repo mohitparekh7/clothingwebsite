@@ -126,12 +126,11 @@ if (isset($upd_logo)) {
             <li class="nav-item">
                 <a class="nav-link" id="accountsettings-tab" data-toggle="tab" href="#accountsettings" role="tab" aria-controls="accountsettings" aria-selected="false">Account Settings</a>
             </li>
-<!-- 
-            <li class="nav-item">
-                <a class="nav-link" id="logo-tab" data-toggle="tab" href="#logo" role="tab" aria-controls="logo" aria-selected="false">Update Logo</a>
-            </li> -->
             <li class="nav-item">
                 <a class="nav-link" id="status-tab" data-toggle="tab" href="#status" role="tab" aria-controls="status" aria-selected="false">Order Status</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="queries-tab" data-toggle="tab" href="#queries" role="tab" aria-controls="queries" aria-selected="false">Customer Queries</a>
             </li>
 
         </ul>
@@ -305,18 +304,8 @@ if (isset($upd_logo)) {
                 </form>
             </div>
 
-            <!-- Tab 4 starts  -->
+                <!-- Tab Order Status starts  -->
 
-            <!-- <div class="tab-pane fade" id="logo" role="tabpanel" aria-labelledby="logo-tab">
-                <div class="container">
-                    <form class="form" method="post" enctype="multipart/form-data">
-                        <input type="file" name="logo_pic" accept="image/*" required />
-                        <button type="submit" name="upd_logo" class="btn btn-outline-primary">Update image</button>
-                    </form>
-                </div>
-            </div> -->
-
-            <!-- Tab 4 ends  -->
 
             <div class="tab-pane fade " id="status" role="tabpanel" aria-labelledby="status-tab">
                 <table class="table">
@@ -362,6 +351,56 @@ if (isset($upd_logo)) {
                     </tbody>
                 </table>
             </div>
+            <!-- Tab Order Status Ends  -->
+
+            <!-- Tab Queries Start  -->
+            <div class="tab-pane fade " id="queries" role="tabpanel" aria-labelledby="queries-tab">
+                <table class="table">
+                    <tbody>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Customer Contact</th>
+                        <th>Query Status</th>
+                        <th>Update Status</th>
+
+                        <?php
+                        $customerquery = mysqli_query($con, "select * from query_details  join product on query_details.p_id=product.p_id where vendor_id='$vrid'");
+                        if (mysqli_num_rows($customerquery) > 0) {
+                            while ($orderrow = mysqli_fetch_array($customerquery)) {
+                                $userid = $orderrow['u_id'];
+                                $userquery = mysqli_query($con,"SELECT * FROM user_details  WHERE  user_id ='$userid'");
+                                $userrow = mysqli_fetch_array($userquery);
+                                $stat = $orderrow['querystatus'];
+                        ?>
+                                <tr>
+                                    <td><?php echo $orderrow['p_id']; ?></td>
+                                    <td><?php echo $orderrow['p_name']; ?></td>
+                                    <td><b>Name: </b><?php echo $userrow['user_name']; ?><br><b>Email: </b><?php echo $userrow['user_emailid']; ?><br><b>Phone: </b><?php echo $userrow['user_mobilenumber']; ?><br></td>
+                                    <td><?php echo $orderrow['q_customerquery']; ?></td>
+                                    <?php
+                                    if ($stat == "Unresolved") {
+                                    ?>
+                                        <td><i style="color:orange;" class="fas fa-exclamation-triangle"></i>&nbsp;<span style="color:red;"><?php echo $orderrow['querystatus']; ?></span></td>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <td><span style="color:green;"><?php echo $orderrow['querystatus']; ?></span></td>
+                                    <?php
+                                    }
+                                    ?>
+                                    <form method="post">
+                                        <td><a href="changequerystatus.php?q_id=<?php echo $orderrow['q_id']; ?>"><button type="button" name="changestatus">Update Status</button></a></td>
+                                    </form>
+                                <tr>
+                            <?php
+                            }
+                        }
+                            ?>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Tab Queries End  -->
+
         </div>
     </div>
 

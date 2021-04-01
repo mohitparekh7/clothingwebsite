@@ -167,7 +167,7 @@ if (isset($login)) {
 			<table>
 				<tr>
 					<td><label for="username">Username:</label></td>
-					<td><input type="email" id="username" placeholder="Enter Username" required name="username"></td>
+					<td><input type="text" id="username" placeholder="Enter Username" required name="username"></td>
 				</tr>
 
 				<tr>

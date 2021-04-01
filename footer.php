@@ -6,7 +6,6 @@
         <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
           <h5>CONTACT</h5>
           <div class="t2"></div>
-          <a href="admin.php">Admin</a>
           <p>Telephone No. 022-12345678 <br>
             Mobile No. 9876543210 <br>
             Address : Blg no. 2, Vile Parle East, Mumbai.
@@ -19,6 +18,7 @@
           <p>
             <p>We will help you reach more and more customers nationally and internationally<br><br>
             <a href="vendor_login1.php">Vendor</a>
+            <a href="admin.php">Admin</a>
             </p>
           </p>
         </div>
@@ -44,5 +44,7 @@
     © 2021 Copyright:
     <a class="text-light" href="index.php">Jade.com</a>
   </div>
-
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

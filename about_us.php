@@ -129,7 +129,7 @@
   <div class="container ab">
   <h2>About Us</h2>
 
-   <p> Sitename is a clothing e-commerce website that provides a very smooth hassle free 
+   <p> Jade is a clothing e-commerce website that provides a very smooth hassle free 
        shopping experience to the users across the country. 
        We aim at providing latest trends to our customers.
        All our products are fully authentic, we also provide various payment options such as cash 

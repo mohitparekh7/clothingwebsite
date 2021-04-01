@@ -44,11 +44,50 @@ if (isset($update)) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <style>
-        ul li a {
+        a:link,
+    a:visited {
+        color: #f3d8e6;
+        font-size: 16px;
+    }
+
+    a:hover,
+    a:active {
+        color: white;
+    }
+
+    .dropdown-menu {
+        background-color: black;
+    }
+
+    .sum {
+        margin-top: 25px;
+        margin-bottom: 30px;
+    }
+
+    .sum p {
+        font-size: 25px;
+    }
+
+    .sum a:link,
+    .sum a:visited {
+        background-color: #c33c82;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .sum a:hover,
+    .sum a:active {
+        background-color: #9c3068;
+    }
+
+        .tabb ul li a {
             color: black;
         }
 
-        ul li a:hover {
+        .tabb ul li a:hover {
             color: black;
             font-weight: bold;
         }
@@ -111,20 +150,20 @@ if (isset($update)) {
     <br><br><br><br>
     <!--details section-->
 
-    <div class="container">
+    <div class="container tabb">
         <!--tab heading-->
-        <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#ED2553;border-radius:10px 10px 10px 10px;" role="tablist">
+        <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#c33c82;border-radius:10px 10px 10px 10px;" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" style="color:#BDDEFD;" id="viewitem-tab" data-toggle="tab" href="#viewitem" role="tab" aria-controls="viewitem" aria-selected="true">View Products</a>
+                <a class="nav-link active" style="color:black" id="viewitem-tab" data-toggle="tab" href="#viewitem" role="tab" aria-controls="viewitem" aria-selected="true">View Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color:#BDDEFD;" id="manageaccount-tab" data-toggle="tab" href="#manageaccount" role="tab" aria-controls="manageaccount" aria-selected="false">Account Settings</a>
+                <a class="nav-link" style="color:black;" id="manageaccount-tab" data-toggle="tab" href="#manageaccount" role="tab" aria-controls="manageaccount" aria-selected="false">Account Settings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color:#BDDEFD;" id="ManageVendors-tab" data-toggle="tab" href="#ManageVendors" role="tab" aria-controls="ManageVendors" aria-selected="false">Manage Vendors</a>
+                <a class="nav-link" style="color:black;" id="ManageVendors-tab" data-toggle="tab" href="#ManageVendors" role="tab" aria-controls="ManageVendors" aria-selected="false">Manage Vendors</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color:#BDDEFD;" id="orderstatus-tab" data-toggle="tab" href="#orderstatus" role="tab" aria-controls="orderstatus" aria-selected="false">Order status</a>
+                <a class="nav-link" style="color:black;" id="orderstatus-tab" data-toggle="tab" href="#orderstatus" role="tab" aria-controls="orderstatus" aria-selected="false">Order status</a>
             </li>
 
         </ul>
@@ -205,7 +244,7 @@ if (isset($update)) {
 
 
 
-                    <button type="submit" name="update" style="background:#ED2553; border:1px solid #ED2553;" class="btn btn-primary">Update</button>
+                    <button type="submit" name="update" style="background:#c33c82; border:1px solid #ED2553;" class="btn btn-primary">Update</button>
                     <div class="footer" style="color:red;"><?php if (isset($ermsg)) {
                                                                 echo $ermsg;
                                                             } ?><?php if (isset($ermsg2)) {

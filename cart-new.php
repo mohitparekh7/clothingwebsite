@@ -100,7 +100,7 @@ if (isset($_POST['checkout'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Bay View</title>
+    <title>Jade</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -108,66 +108,47 @@ if (isset($_POST['checkout'])) {
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     <script type="text/javascript" async src="cart-new.js"></script>
     <style type="text/css">
-        body {
-            overflow-x: hidden;
-            background-image: url(./images/bg11.jpg);
-        }
-
-        .logo img {
-            height: 55px;
-        }
-
-        .nav-link {
-            padding: 8px 10px 8px !important;
-        }
-
-        .navigation a {
-            font-size: 17px;
-            color: black;
-        }
-
-        .navigation a:hover {
-            color: #ff5c33;
-        }
-
-
-        .navigation a.active-link {
-            background-color: #ff5c33;
-            color: white;
-            border-radius: 5px;
-
-        }
-
-
-        .dropdown-menu a:active {
-            background-color: #404040;
-        }
-
-        .nav-item .fa {
-            font-size: 35px;
-            margin-top: 2px;
-            color: #ff5c33;
-        }
-
-        .card {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
         .card img {
             height: 270px;
         }
 
-        .btn1 {
-            background-color: #ff5c33;
+        .card {
+            height: 90%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+
+        .card img {
+            height: 58%;
+        }
+
+        .card-title {
+            font-size: 16px;
+        }
+
+        .card-text {
+            font-style: italic;
+            font-size: 13px;
+            color: #404040;
+        }
+
+        .card a:hover {
+            color: #404040;
+        }
+
+        .btn {
             color: white;
-            width: 15%;
-            border-color: #ff5c33;
-            margin-left: 10px;
+            background-color: #c33c82;
+        }
+
+
+        .btn1:hover {
+            background-color: #404040;
         }
 
         .pr {
-            background-color: #ff5c33;
+            background-color: #c33c82;
             text-align: right;
             padding: 8px;
             color: white;
@@ -180,7 +161,7 @@ if (isset($_POST['checkout'])) {
         }
 
         .btn2 {
-            background-color: #ff5c33;
+            background-color: #c33c82;
             color: white;
             float: right;
             margin-top: 20px;
@@ -188,25 +169,20 @@ if (isset($_POST['checkout'])) {
             font-size: 18px;
         }
 
-        .fa {
-            font-size: 30px;
-            margin-right: 10px;
-        }
 
-        .foot {
+        footer{
+            width: 100% !important;
             clear: both;
-            background-color: lightgrey;
         }
     </style>
 </head>
-
+<?php
+include("header.php");
+?>
 <body>
-    <?php
-    include("header.php");
-    ?>
 
     <div style="text-align: center; margin-bottom: 20px; font-size: 25px;background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.20);">
-        <h3 style="color: #ff3030; padding: 10px; font-family: 'Merriweather', serif;">My Cart</h3>
+        <h3 style="color:#c33c82; padding: 10px; font-family: 'Merriweather', serif;">My Cart</h3>
     </div>
     <div class="container">
         <div class="row">
@@ -266,5 +242,9 @@ if (isset($_POST['checkout'])) {
     include("footer.php");
     ?>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </html>

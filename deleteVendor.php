@@ -98,3 +98,5 @@ if ($re_no) {
     </script>
 
 </body>
+
+</html>

@@ -284,58 +284,6 @@ include("header.php");
 	<div class="t1">
 	</div>
 
-<!-- 	<div class="ite">
-		<h3>Featured Products</h3>
-	</div>
-
-	<div class="container item">
-		<div class="row">
-			<div class="col-lg-3">
-				<div class="card text-center" style="">
-					<img class="card-img-top" src="images/cat31.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Pink Jumper</h5>
-						<p class="card-text pr">Rs. 1024</p>
-						<p class="card-text" style="font-style: italic;">Vera Moda</p>
-						<a href="#" class="btn">Add to cart</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="card text-center" style="">
-					<img class="card-img-top" src="images/cat31.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Pink Jumper</h5>
-						<p class="card-text pr">Rs. 1024</p>
-						<p class="card-text" style="font-style: italic;">Vera Moda</p>
-						<a href="#" class="btn">Add to cart</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="card text-center" style="">
-					<img class="card-img-top" src="images/cat31.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Pink Jumper</h5>
-						<p class="card-text pr">Rs. 1024</p>
-						<p class="card-text" style="font-style: italic;">Vera Moda</p>
-						<a href="#" class="btn">Add to cart</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3">
-				<div class="card text-center" style="">
-					<img class="card-img-top" src="images/cat31.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Pink Jumper</h5>
-						<p class="card-text pr">Rs. 1024</p>
-						<p class="card-text" style="font-style: italic;">Vera Moda</p>
-						<a href="#" class="btn">Add to cart</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
 
 	<div class="container ab">
   <h3>About Us</h3>

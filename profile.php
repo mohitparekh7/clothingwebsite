@@ -19,53 +19,8 @@ $row = mysqli_fetch_array($query)
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style type="text/css">
-        body {
-            overflow-x: hidden;
-            background-image: url(./images/food.jpeg);
-            background-position: center;
-        }
-
-        .logo img {
-            height: 55px;
-        }
-
-        .navbar {
-            background-image: url(./images/bg1.jpg);
-            margin-bottom: 40px;
-        }
-
-        .nav-link {
-            padding: 8px 10px 8px !important;
-        }
-
-        .navigation a {
-            font-size: 17px;
-            color: black;
-        }
-
-        .navigation a:hover {
-            color: #ff5c33;
-        }
-
-
-        .navigation a.active-link {
-            background-color: #ff5c33;
-            color: white;
-            border-radius: 5px;
-
-        }
-
-        .nav-item .fa {
-            font-size: 35px;
-            margin-top: 2px;
-            color: #ff5c33;
-        }
-
-
-        .dropdown-menu a:active {
-            background-color: #404040;
-        }
-
+       
+        
         .form1 {
             margin-top: 20px;
             background-color: white;
@@ -87,7 +42,7 @@ $row = mysqli_fetch_array($query)
         }
 
         .btn1 {
-            background-color: #ff5c33;
+            background-color: #c33c82;
             color: white;
             width: 30%;
             margin: auto;
@@ -165,7 +120,9 @@ $row = mysqli_fetch_array($query)
     ?>
 
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 </html>
 <?php
 if (isset($_POST['submit'])) {

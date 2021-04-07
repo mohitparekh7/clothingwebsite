@@ -70,9 +70,13 @@ if (isset($logout)) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    include("header.php");
+    ?>
+
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Update</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -85,34 +89,25 @@ if (isset($logout)) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <style>
-
-        ul li a {
-            color: white;
-            padding: 40px;
-        }
-
-        ul li a:hover {
-            color: white;
-        }
+        .btn {
+        background-color: #c33c82;
+        color: white;
+    }
     </style>
 
 </head>
 
 <body>
-    
 
-    <!--navbar ends-->
-
-
-    <br><br>
-    <div class="middle" style=" position:fixed; padding:40px; border:1px solid #ED2553;  width:100%;">
+    <br>
         <!--tab heading-->
-        <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#ED2553;border-radius:10px 10px 10px 10px;" role="tablist">
+        <div class="container">
+        <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#c33c82;border-radius:10px 10px 10px 10px;" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#viewitem" role="tab" aria-controls="home" aria-selected="true">Update Products</a>
             </li>
 
-            <a class="nav-link" style="color:white;" id="profile-tab" aria-selected="false">Product Details</a>
+            <!-- <a class="nav-link" style="color:white;" id="profile-tab" aria-selected="false">Product Details</a> -->
 
 
         </ul>
@@ -170,10 +165,10 @@ if (isset($logout)) {
 
                     <div class="form-group">
 
-                        <input type="file" accept="image/*" name="food_pic" />Food Snaps
+                        <!-- <input type="file" accept="image/*" name="food_pic" />Item Image -->
                     </div>
 
-                    <button type="submit" name="update" class="btn btn-primary">Update Item</button>
+                    <button type="submit" name="update" class="btn">Update Item</button>
                     <br>
 
                 </form>
@@ -182,7 +177,14 @@ if (isset($logout)) {
 
         </div>
     </div>
+    </div>
+
+    <?php
+    include("Footer.php");
+    ?>
+
 
 </body>
+
 
 </html>

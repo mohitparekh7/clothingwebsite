@@ -259,7 +259,6 @@ if (isset($update)) {
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col"></th>
                                 <th scope="col">Vendor Id</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Address</th>
@@ -273,7 +272,6 @@ if (isset($update)) {
                             while ($row = mysqli_fetch_array($query)) {
                             ?>
                                 <tr>
-                                    <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode($row['vendor_img']).'" height="250px" width="150px" />' ?></td>
                                     <th scope="row"><?php echo $row['vendor_id']; ?></th>
                                     <td><?php echo $row['vendor_name']; ?></td>
                                     <td><?php echo $row['vendor_address']; ?></td>
@@ -290,27 +288,30 @@ if (isset($update)) {
                     </table>
                 </div>
             </div>
+
             <!--tab 4-->
             <div class="tab-pane fade" id="orderstatus" role="tabpanel" aria-labelledby="orderstatus-tab">
                 <table class="table">
                     <th>Order Id</th>
                     <th>Product Id</th>
-                    <th>Customer Email Id</th>
+                    <th>Product Name</th>
+                    <th>User Id</th>
                     <th>Order Status</th>
                     <tbody>
                         <?php
                         $rr = mysqli_query($con, "select * from orders");
                         while ($rrr = mysqli_fetch_array($rr)) {
                             $stat = $rrr['orderstatus'];
-                            $productid = $rrr['product_id'];
+                            $productid = $rrr['p_id'];
                             $r_f = mysqli_query($con, "select * from product where p_id='$productid'");
                             $r_ff = mysqli_fetch_array($r_f);
 
                         ?>
                             <tr>
                                 <td><?php echo $rrr['order_id']; ?></td>
-                                <td><a href="searchfood.php?food_id=<?php echo $rrr['product_id']; ?>"><?php echo $rrr['product_id']; ?></td>
-                                <td><?php echo $rrr['email_id']; ?></td>
+                                <td><?php echo $rrr['p_id']; ?></td>
+                                <td><?php echo $rrr['order_pname']; ?></td>
+                                <td><?php echo $rrr['u_id']; ?></td>
                                 <?php
                                 if ($stat == "cancelled" || $stat == "Out Of Stock") {
                                 ?>

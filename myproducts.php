@@ -25,15 +25,15 @@ if (!isset($_SESSION['id'])) {
 
 if (isset($add)) {
     if (isset($_SESSION['id'])) {
-        $img_name = $_FILES['p_img']['p_name'];
+        // $img_name = $_FILES['p_img']['p_name'];
         if (!empty($chk)) {
             $gender = implode(",", $chk);
-            if (mysqli_query($con, "insert into product(vendor_id,p_name,p_price,p_category,p_gender,p_img) values
+            if (mysqli_query($con, "insert into product(vendor_id,p_name,p_price,p_category,p_gender) values
 	
-	('$v_id','$product_name','$cost','$category','$gender','$img_name')")) {
-                move_uploaded_file($_FILES['p_img']['tmp_name'], "image/restaurant/$id/foodimages/" . $_FILES['food_pic']['name']);
+	('$v_id','$product_name','$cost','$category','$gender')")) {
+            
             } else {
-                echo "failed";
+                echo mysqli_error($con);
             }
         } else {
             $paymessage = "please select a gender";
@@ -94,14 +94,10 @@ if (isset($upd_logo)) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <style>
-        ul li a {
-            color: white;
-            padding: 40px;
-        }
-
-        ul li a:hover {
-            color: white;
-        }
+        .btn {
+        background-color: #c33c82;
+        color: white;
+    }
     </style>
 
 </head>
@@ -114,9 +110,9 @@ if (isset($upd_logo)) {
 
 
     <br><br>
-    <div class="middle" style=" padding:40px; border:1px solid #ED2553;  width:100%;">
         <!--tab heading-->
-        <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#ED2553;border-radius:10px 10px 10px 10px;" role="tablist">
+        <div class="container">
+        <ul class="nav nav-tabs nabbar_inverse" id="myTab" style="background:#c33c82;border-radius:10px 10px 10px 10px;" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#viewitem" role="tab" aria-controls="home" aria-selected="true">Manage Products</a>
             </li>
@@ -148,6 +144,7 @@ if (isset($upd_logo)) {
                         <th>Product name</th>
                         <th>Product Price</th>
                         <th>Product Category </th>
+                        <th>Gender </th>
                         <th>Delete Item </th>
                         <th>Update item Details </th>
                         <?php
@@ -165,13 +162,13 @@ if (isset($upd_logo)) {
                                         <td align="center" style="width:150px;"><?php echo $row['p_gender'] . "<br>"; ?></td>
                                         <td align="center" style="width:150px;">
 
-                                            <a href="vendor_delete_product.php?food_id=<?php echo $row['p_id']; ?>"><button type="button" class="btn btn-warning">Delete </button></a>
+                                            <a href="vendor_delete_product.php?p_id=<?php echo $row['p_id']; ?>"><button type="button" class="btn btn-danger">Delete </button></a>
 
                                         </td>
                                         <td align="center" style="width:150px;">
 
-                                            <a href="update.php?food_id=<?php echo $row['p_id']; ?>"><button type="button" class="btn btn-danger">Update </button></a>
-
+                                            <!-- <a href="update.php?food_id=<?php echo $row['p_id'];?>"><button type="button" class="btn">Update </button></a> -->
+                                            <a href="update.php?p_id=<?php echo $row['p_id']; ?>"><button type="button" class="btn">Update </button></a>
                                         </td>
                                     </tr>
 
@@ -235,11 +232,11 @@ if (isset($upd_logo)) {
                                                     } ?></span>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <input type="file" accept="image/*" name="product_pic" />Product Image
-                    </div>
+                    </div> -->
 
-                    <button type="submit" name="add" class="btn btn-primary">ADD Item</button>
+                    <button type="submit" name="add" class="btn">ADD Item</button>
                     <br>
                     <span style="color:red;"><?php if (isset($msg)) {
                                                     echo $msg;
@@ -299,13 +296,13 @@ if (isset($upd_logo)) {
 
 
 
-                    <button type="submit" name="upd_account" style="background:#ED2553; border:1px solid #ED2553;" class="btn btn-primary">Update</button>
+                    <button type="submit" name="upd_account" class="btn">Update</button>
 
                 </form>
             </div>
 
-                <!-- Tab Order Status starts  -->
 
+            <!-- Tab Order Status starts  -->
 
             <div class="tab-pane fade " id="status" role="tabpanel" aria-labelledby="status-tab">
                 <table class="table">
@@ -341,7 +338,7 @@ if (isset($upd_logo)) {
                                     }
                                     ?>
                                     <form method="post">
-                                        <td><a href="changestatus.php?order_id=<?php echo $orderrow['order_id']; ?>"><button type="button" name="changestatus">Update Status</button></a></td>
+                                        <td><a href="changestatus.php?order_id=<?php echo $orderrow['order_id']; ?>"><button type="button" name="changestatus" class="btn">Update Status</button></a></td>
                                     </form>
                                 <tr>
                             <?php
@@ -351,10 +348,11 @@ if (isset($upd_logo)) {
                     </tbody>
                 </table>
             </div>
+
             <!-- Tab Order Status Ends  -->
 
             <!-- Tab Queries Start  -->
-            <div class="tab-pane fade " id="queries" role="tabpanel" aria-labelledby="queries-tab">
+<div class="tab-pane fade " id="queries" role="tabpanel" aria-labelledby="queries-tab">
                 <table class="table">
                     <tbody>
                         <th>Product Id</th>
@@ -389,7 +387,7 @@ if (isset($upd_logo)) {
                                     }
                                     ?>
                                     <form method="post">
-                                        <td><a href="changequerystatus.php?q_id=<?php echo $orderrow['q_id']; ?>"><button type="button" name="changestatus">Update Status</button></a></td>
+                                        <td><a href="changequerystatus.php?q_id=<?php echo $orderrow['q_id']; ?>"><button class="btn" type="button" name="changestatus">Update Status</button></a></td>
                                     </form>
                                 <tr>
                             <?php
@@ -400,10 +398,15 @@ if (isset($upd_logo)) {
                 </table>
             </div>
             <!-- Tab Queries End  -->
-
+            
         </div>
     </div>
-
+    </div>
+<?php
+    include("footer.php");
+    ?>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 </html>

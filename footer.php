@@ -17,8 +17,8 @@
           <div class="t2"></div>
           <p>
             <p>We will help you reach more and more customers nationally and internationally<br><br>
-            <a href="vendor_login1.php">Vendor</a>
-            <a href="admin.php">Admin</a>
+            <a href="vendor_login1.php">Vendor Login</a><br>
+            <a href="admin.php">Admin Login</a>
             </p>
           </p>
         </div>

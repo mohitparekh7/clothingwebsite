@@ -16,60 +16,6 @@ $id = $_SESSION['id'];
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     <style type="text/css">
-        body {
-            overflow-x: hidden;
-            background-image: url(./images/food11.jpg);
-        }
-
-        .logo img {
-            height: 55px;
-        }
-
-        .navbar {
-            background-image: url(./images/bg1.jpg);
-        }
-
-        .nav-link {
-            padding: 8px 10px 8px !important;
-        }
-
-        .navigation a {
-            font-size: 17px;
-            color: black;
-        }
-
-        .navigation a:hover {
-            color: #ff5c33;
-        }
-
-
-        .navigation a.active-link {
-            background-color: #ff5c33;
-            color: white;
-            border-radius: 5px;
-
-        }
-
-        .dropdown-menu a:active {
-            background-color: #404040;
-        }
-
-        .nav-item .fa {
-            font-size: 35px;
-            margin-top: 2px;
-        }
-
-
-        .dropdown-menu a:active {
-            background-color: #404040;
-        }
-
-        .nav-item .fa {
-            font-size: 35px;
-            margin-top: 2px;
-            color: #ff5c33;
-        }
-
         .entire {
             background-color: white;
             width: 40%;
@@ -92,7 +38,7 @@ $id = $_SESSION['id'];
         }
 
         th {
-            background-color: #ff5c33;
+            background-color: #c33c82;
             color: white;
             font-weight: 500;
             padding: 8px;
@@ -181,5 +127,7 @@ $id = $_SESSION['id'];
     include("footer.php");
     ?>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 </html>
